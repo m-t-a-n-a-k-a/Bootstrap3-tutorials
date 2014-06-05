@@ -20,6 +20,15 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
     <style>
+      /* Navbarを固定しているので、その分空ける */
+      body{
+        padding-top: 70px;
+      }
+
+      hr{
+        margin: 60px 0;
+      }
+
       /* オリジナルボタンスタイル */
       .btn-origin {
         color: #fff;
@@ -34,7 +43,58 @@
         border-bottom: none;
         margin-top: 2px;
       }
-
+      
+      /* Navbarのオリジナルスタイル */
+      .navbar-default {
+        border: none;
+      }
+      .navbar-origin {
+        background: none;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+      }
+      .navbar-origin .navbar-brand {
+        padding: 0 15px;
+        line-height: 90px;
+        height: 90px;
+        font-size: 28px;
+        font-weight: 100;
+      }
+      .navbar-origin .navbar-nav>li>a {
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 90px;
+        font-weight: 200;
+        color: #A5A5A5;
+      }
+      .navbar-origin .navbar-nav>li>a:hover{
+        color: #E42121;
+        border-bottom: 1px solid #E42121;
+        line-height: 89px;
+      }
+      .navbar-origin .navbar-nav>.open>a,
+      .navbar-origin .navbar-nav>.open>a:hover,
+      .navbar-origin .navbar-nav>.open>a:focus {
+        background: none;
+        color: #E42121;
+      }
+      .navbar-origin .navbar-nav>li>.dropdown-menu {
+        margin-top: 0;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        border-top: 1px solid #E42121;
+      }
+      .navbar-origin .dropdown-menu {
+        padding: 0;
+      }
+      .navbar-origin .dropdown-menu li a {
+        padding: 15px;
+        color: #777;
+      }
+      .navbar-origin .dropdown-menu li.divider {
+        padding: 0;
+        margin: 0;
+      }
     </style>
 
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -57,7 +117,7 @@
 
       ==================================================-->
 
-      <h2>Dropdown nomal</h2>
+      <h2>Basic Dropdown</h2>
       <div class="dropdown">
 
         <!-- ここが表示されるボタン <a>タグでもOK -->
@@ -234,9 +294,291 @@
 
       <!--=================================================
 
-                      Navs & Navbar
+                             Navbar
 
       ==================================================-->
+
+      <h2>Basic Navbar</h2>
+
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+
+          <!-- スマートフォンサイズで表示されるメニューボタンとテキスト -->
+          <div class="navbar-header">
+
+            <!-- 
+
+              メニューボタン 
+              
+              data-toggle : ボタンを押したときにNavbarを開かせるために必要
+              data-target : 複数navbarを作成する場合、ボタンとナビを紐づけるために必要
+
+            -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-menu-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            
+            <!-- タイトルなどのテキスト -->
+            <a class="navbar-brand" href="#">Designup.jp</a>
+
+          </div>
+
+          <!-- グローバルナビの中身 -->
+          <div class="collapse navbar-collapse" id="nav-menu-1">
+            
+            <!-- 各ナビゲーションメニュー -->
+            <ul class="nav navbar-nav">
+
+              <!-- 通常のリンク -->
+              <li class="active"><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+
+              <!-- ドロップダウンのメニューも配置可能 -->
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+
+      <h2>Other Navbar</h2>
+
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+
+          <!-- スマートフォンサイズで表示されるメニューボタンとテキスト -->
+          <div class="navbar-header">
+
+            <!-- 
+
+              メニューボタン 
+              
+              data-toggle : ボタンを押したときにNavbarを開かせるために必要
+              data-target : 複数navbarを作成する場合、ボタンとナビを紐づけるために必要
+
+            -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-menu-2">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            
+            <!-- タイトルなどのテキスト -->
+            <a class="navbar-brand" href="#">Designup.jp</a>
+
+          </div>
+
+          <!-- グローバルナビの中身 -->
+          <div class="collapse navbar-collapse" id="nav-menu-2">
+            
+            <!-- フォーム -->
+            <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="検索">
+              </div>
+              <button type="submit" class="btn btn-default">送信</button>
+            </form>
+
+
+            <!-- ボタン -->
+            <button type="button" class="btn btn-default navbar-btn">ボタン</button>
+
+
+            <!-- テキスト -->
+            <p class="navbar-text">ナビのテキスト</p>
+
+
+            <!-- リンク -->
+            <p class="navbar-text navbar-right">リンクは <a href="#" class="navbar-link">こちら</a></p>
+
+
+          </div>
+        </div>
+      </nav>
+
+      <h2>Navbar Fixed top</h2>
+      
+      <!-- 
+
+        navbar-fixed-top : トップに固定するためのクラスを追加
+        navbar-fixed-bottom : フッターに固定
+
+        固定する場合はbodyのスタイルに padding-top: 70px; などのように追加する
+
+      -->
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+
+          <!-- スマートフォンサイズで表示されるメニューボタンとテキスト -->
+          <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-menu-3">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            
+            <!-- タイトルなどのテキスト -->
+            <a class="navbar-brand" href="#">Designup.jp</a>
+
+          </div>
+
+          <!-- グローバルナビの中身 -->
+          <div class="collapse navbar-collapse" id="nav-menu-3">
+            
+            <!-- 各ナビゲーションメニュー -->
+            <ul class="nav navbar-nav">
+
+              <!-- 通常のリンク -->
+              <li class="active"><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+
+              <!-- ドロップダウンのメニューも配置可能 -->
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+
+            </ul>
+
+
+          </div>
+        </div>
+      </nav>
+
+      <h2>Navbar Style</h2>
+      
+      <!-- 
+
+        navbar-inverse : 黒いスタイルに変更
+        navbar-origin : オリジナルスタイルを当ててみると・・・
+
+      -->
+      <nav class="navbar navbar-default navbar-inverse" role="navigation">
+        <div class="container-fluid">
+
+          <!-- スマートフォンサイズで表示されるメニューボタンとテキスト -->
+          <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-menu-4">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            
+            <!-- タイトルなどのテキスト -->
+            <a class="navbar-brand" href="#">Designup.jp</a>
+
+          </div>
+
+          <!-- グローバルナビの中身 -->
+          <div class="collapse navbar-collapse" id="nav-menu-4">
+            
+            <!-- 各ナビゲーションメニュー -->
+            <ul class="nav navbar-nav">
+
+              <!-- 通常のリンク -->
+              <li class="active"><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+
+              <!-- ドロップダウンのメニューも配置可能 -->
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+
+            </ul>
+
+
+          </div>
+        </div>
+      </nav>
+        
+      <h2>Navbar Original Style</h2>
+      <nav class="navbar navbar-default navbar-origin" role="navigation">
+        <div class="container-fluid">
+
+          <!-- スマートフォンサイズで表示されるメニューボタンとテキスト -->
+          <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-menu-4">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            
+            <!-- タイトルなどのテキスト -->
+            <a class="navbar-brand" href="#">Designup.jp</a>
+
+          </div>
+
+          <!-- グローバルナビの中身 -->
+          <div class="collapse navbar-collapse" id="nav-menu-4">
+            
+            <!-- 各ナビゲーションメニュー -->
+            <ul class="nav navbar-nav navbar-right">
+
+              <!-- 通常のリンク -->
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Works</a></li>
+              <li><a href="#">Portfolio</a></li>
+
+              <!-- ドロップダウンのメニューも配置可能 -->
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><i class="fa fa-envelope"></i> Mail@mail.com</a></li>
+                  <li><a href="#"><i class="fa fa-phone"></i> 000-1111-2222</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
+                  <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
+                </ul>
+              </li>
+
+            </ul>
+
+
+          </div>
+        </div>
+      </nav>
+
+      <hr>
 
     </div>
     <!-- /container -->
